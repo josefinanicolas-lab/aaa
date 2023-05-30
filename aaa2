@@ -1,0 +1,1 @@
+grep -oE 'name="([^"]+)' archivo.txt | awk 'seen || (++seen && NR > 1)'
