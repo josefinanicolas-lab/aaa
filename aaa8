@@ -1,0 +1,1 @@
+sed -n 's/.*defaultValue="\([^"]*\)".*/\1/p' archivo.txt
