@@ -1,0 +1,1 @@
+awk -F 'defaultValue="' '{if ($2 != "") {split($2, arr, "\""); print arr[1]}}' archivo.txt
