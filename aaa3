@@ -1,0 +1,1 @@
+grep -A1 "parameter" archivo.txt | awk '/name=/{match($0, /name="([^"]+)/, arr); print arr[1]}'
