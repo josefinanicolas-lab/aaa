@@ -1,0 +1,5 @@
+find . -type f -name "*.pst" -exec sh -c '
+    for file do
+        nombreParam=$(grep -A1 "parameter" "$file" | awk "/name=/{match(\$0, /name=\"([^\"]+)/, arr); print arr[1]}")
+        echo "$nombreParam" >> archivo.txt
+    done' sh {} +
