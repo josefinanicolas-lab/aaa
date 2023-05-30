@@ -1,0 +1,1 @@
+grep "defaultValue=" archivo.txt | awk -F'"' '{print $2}'
