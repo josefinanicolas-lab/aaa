@@ -1,0 +1,10 @@
+#!/bin/bash
+
+find . -type f -name "*.pst" -exec grep -A1 "parameter" {} \; | awk -F'"' '/name=/{match($0, /name="([^"]+)/, arr); print FILENAME " | " arr[1]}' > archivo2.txt
+
+find . -type f -name "*.pst" -exec awk -F'"' '/defaultValue=/{print $2}' {} \; > archivo3.txt
+
+cat archivo1.txt <(echo "|") archivo2.txt <(echo "|") archivo3.txt <(echo "|") > archivo_unificado.txt
+
+
+#category | nombre file | name | value
