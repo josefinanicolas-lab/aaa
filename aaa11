@@ -1,0 +1,5 @@
+archivo="archivo.txt"
+
+for file in $(find . -type f -name "*.pst"); do
+    awk -F'"' '/parameter/ && /name=/{match($0, /name="([^"]+)/, arr); print FILENAME " | " arr[1]}' "$file" >> "$archivo"
+done
