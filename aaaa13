@@ -1,0 +1,1 @@
+paste -d '|' <(sed 's/^/ /' archivo1.txt) archivo2.txt > archivo_unificado.txt
