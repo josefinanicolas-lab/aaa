@@ -1,1 +1,0 @@
-grep "defaultValue=" archivo.txt | sed 's/.*"//; s/".*//'
