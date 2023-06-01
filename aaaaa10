@@ -1,1 +1,0 @@
-find . -type f -name "*.pst" -exec awk -F'"' '/parameter/ && /name=/{match($0, /name="([^"]+)/, arr); print FILENAME " | " arr[1]}' {} \; >> archivo.txt
