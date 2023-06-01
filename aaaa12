@@ -1,1 +1,0 @@
-{ cat archivo1.txt; echo "|"; cat archivo2.txt; } > archivo_unificado.txt
