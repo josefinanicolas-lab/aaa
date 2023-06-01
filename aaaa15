@@ -1,1 +1,0 @@
-awk -F'"' '/has_Defparameter/ && /name=/ || /category=/ {match($0, /name="([^"]+)/, nameArr); match($0, /category="([^"]+)/, categoryArr); sub(".*/", "", categoryArr[1]); print filename " | " nameArr[1] " | " categoryArr[1]}' filename="$filename"
