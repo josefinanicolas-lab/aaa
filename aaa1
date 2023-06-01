@@ -1,7 +1,0 @@
-find directorio -type f -name "*.pts" -exec sh -c '
-  for file do
-    nombreParam=$(grep -m1 -o -E 'name="([^"]+)"' "$file" | sed -E 's/name="([^"]+)"/\1/')
-    defaultValue=$(grep -o -E 'defaultValue="([^"]+)"' "$file" | sed -E 's/defaultValue="([^"]+)"/\1/')
-    category=$(grep -m1 -o -E 'category="([^"]+)"' "$file" | sed -E 's/category="([^"]+)"/\1/')
-    echo "$nombreParam|$file|$defaultValue|$category"
-  done' sh {} + > nuevo_archivo.txt
