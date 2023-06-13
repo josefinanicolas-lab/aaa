@@ -1,0 +1,22 @@
+#!/bin/bash
+
+archivo="text.txt"
+patron='(?<=value=")[^"]*'
+encontrado=false
+
+# Leer el archivo línea por línea utilizando awk
+awk -v patron="$patron" -v encontrado="$encontrado" '{
+  if (encontrado == "true") {
+    # Buscar el patrón en la línea utilizando awk
+    if (match($0, patron)) {
+      print substr($0, RSTART, RLENGTH)
+    } else {
+      print "0"
+    }
+  } else {
+    # Verificar si se encuentra la palabra "parametro" utilizando awk
+    if ($0 ~ /parametro/) {
+      encontrado="true"
+    }
+  }
+}' "$archivo"
